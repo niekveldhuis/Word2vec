@@ -30,7 +30,7 @@ Several of these projects include both Sumerian and Akkadian (often in the same 
 
 The [SAAO](http://oracc.org/saao) project is subdivided into 19 sub-projects according to the volumes in the SAA series. Each volume includes letters or documents relating to a particular king, or is devoted to a particular subject (such as divination). In the current output all SAAO documents are found in a single file.
 
-A few projects have not been included here, for a variety of reasons. [DCCMT](http://oracc.org/dccmt) and [RIMANUM](http://oracc.org/rimanum) are in need of updating. The lexical texts in [DCCLT](http://oracc.org/dcclt) do not provide a regular textual context and may therefore be less valuable for word2vec (one could argue, similarly, that the commentary texts in [CCPO](http://ccp.yale.edu) should not be included. It might be worth adding [DCCLT](http://oracc.org/dcclt) and [DCCLT/NINEVEH](http://oracc.org/dcclt/nineveh) to see how this changes the outcomes of the analysis.
+A few projects have not been included here, for a variety of reasons. [DCCMT](http://oracc.org/dccmt) and [RIMANUM](http://oracc.org/rimanum) are in need of updating. The lexical texts in [DCCLT](http://oracc.org/dcclt) do not provide a regular textual context and may therefore be less valuable for word2vec (one could argue, similarly, that the commentary texts in [CCPO](http://ccp.yale.edu) should not be included). It might be worth adding [DCCLT](http://oracc.org/dcclt) and [DCCLT/NINEVEH](http://oracc.org/dcclt/nineveh) to see how this changes the outcomes of the analysis.
 
 In collecting the data from [ORACC](http://oracc.org) only lemmatized texts have been taken into account. For an introduction to ORACC lemmatization see the [documentation page](http://oracc.museum.upenn.edu/doc/help/lemmatising/primer/).
 
@@ -66,6 +66,7 @@ Many of these non-lemmas are introduced by a dollar sign ($). The $ indicates th
 
 In theory, lemmatization follows strict rules that ensures that the same word is lemmatized the same way across projects. In practice, this has often gone wrong so that the same word may be represented differently in the corpus. Examples are:
 > būru[(bull)calf]N vs. būru[(bull)-calf]N
+
 > ṭēmu[(fore)thought]N vs. ṭēmu[instruction]N
 
 Occasionaly there may also be different versions of the CF. For further exploration it would, therefore, be advantageous to create a cleaning pipeline with Openrefine or a similar tool. For now, the data may be explored the way they are.
