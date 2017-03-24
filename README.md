@@ -39,10 +39,21 @@ The corpus currently contains more than 6,000 texts of different length.
 # Data and Data Format
 Each `.csv` file in `/output` has two fields: `id_text` and `lemma`. The field `id_text` contains a text ID that consists of a letter (P, Q, or X) and a six-digit number. The ID can easily be expanded into a URL that points at the online edition of the text, by combining it with the file name. The code for doing so is:
 > `url = 'http://oracc.org/' + filename[:-4].replace('_', '/') + '/' + id_text`
+
 Thus the URL for `id_text` = Q006239 in the file ribo_babylon2.csv is http://oracc.org/ribo/babylon2/Q006239.
 
 The field `lemma` consist of a concatenation of all the lemmas in that text in the original order. The format of a lemma is:
 > CitationForm[GuideWord]PartofSpeech (abbreviated as CF[GW]POS).
+
 An example is:
 > immeru[sheep]N
+
+The GW, technically, is not a translation but a disambiguator for homonyms. The complete lemma is a pointer to an entry in a standard dictionary (the *Concise Dictionary of Akkadian* by N. Postgate and J. Black). The GW does not take into account contextual meaning. Thus the word muhhu[skull]N is most commonly used in the prepositional expression *ina muhhi*, lemmatized ina[in]PRP muhhu[skull]N, meaning 'upon'.
+
+If a word cannot be lemmatized (because it is unknown or broken) it is represented in its (sign-by-sign) transliteration, followed by NA as GW and POS, for example:
+> x-ka-ti[NA]NA
+
+These non-lemmas (which are meaningless for all practical purposes) are included in the data because they may separate words that would otherwise seem to be adjacent.
+
+Many of these non-lemmas are introduced by a dollar sign ($). The $ indicates that the reading of the signs in question is uncertain (many cuneiform signs are polyvalent). For the present purposes, this is irrelevant and I recommend removing all $ signs (there are no other places where $ is used).
 
