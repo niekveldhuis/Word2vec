@@ -35,4 +35,5 @@ A few projects have not been included here, for a variety of reasons. [DCCMT](ht
 In collecting the data from [ORACC](http://oracc.org) only lemmatized texts have been taken into account. For an introduction to ORACC lemmatization see the [documentation page](http://oracc.museum.upenn.edu/doc/help/lemmatising/primer/).
 
 # Data and Data Format
-Each `.csv` file in `/output` has two fields: `id_text` and `lemma`
+Each `.csv` file in `/output` has two fields: `id_text` and `lemma`. The field `id_text` contains a text ID that consists of a letter (P, Q, or X) and a six-digit number. The ID can easily be expanded into a URL that points at the online edition of the text, by combining it with the file name. The code for doing so is:
+> `url = 'http://oracc.org/' + filename[:-4].replace('_', '/') + '/' + id_text`
