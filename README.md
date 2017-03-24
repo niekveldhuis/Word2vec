@@ -24,9 +24,9 @@ The [RINAP](http://oracc.org/rinap) and [RIBO](http://oracc.org/ribo) projects a
 Several of these projects include both Sumerian and Akkadian (often in the same document). For the purpose of this project only the Akkadian is included in the output.
 
 ## Letters and Adminstrative Texts
-[AEMW/AMARNA](http://oracc.org/aemw/amarna): International correspondence of the Egyptian Pharaoh found in Amarna, ca 1300 BCE.
-[HBTIN](http://oracc.org/hbtin): Hellenistic-period contracts from Uruk.
-[SAAO](http://oracc.org/saao): letters and administrative texts from the Assyrian royal court (ca. 800-612 BCE).
+* [AEMW/AMARNA](http://oracc.org/aemw/amarna): International correspondence of the Egyptian Pharaoh found in Amarna, ca 1300 BCE.
+* [HBTIN](http://oracc.org/hbtin): Hellenistic-period contracts from Uruk.
+* [SAAO](http://oracc.org/saao): letters and administrative texts from the Assyrian royal court (ca. 800-612 BCE).
 
 The [SAAO](http://oracc.org/saao) project is subdivided into 19 sub-projects according to the volumes in the SAA series. Each volume includes letters or documents relating to a particular king, or is devoted to a particular subject (such as divination). In the current output all SAAO documents are found in a single file.
 
@@ -57,3 +57,5 @@ These non-lemmas (which are meaningless for all practical purposes) are included
 
 Many of these non-lemmas are introduced by a dollar sign ($). The $ indicates that the reading of the signs in question is uncertain (many cuneiform signs are polyvalent). For the present purposes, this is irrelevant and I recommend removing all $ signs (there are no other places where $ is used).
 
+In theory, lemmatization follows strict rules that ensures that the same word is lemmatized the same way across projects. In practice, this has often gone wrong so that the same word may be represented differently in the corpus. An example is:
+> 
