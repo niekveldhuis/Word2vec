@@ -37,10 +37,12 @@ In collecting the data from [ORACC](http://oracc.org) only lemmatized texts have
 The corpus currently contains more than 6,000 texts of different length.
 
 # Data and Data Format
+The `.csv` files in the `/output` directory have been produced by the `get_json.ipynb` notebook in this repository. It parses the `.json` files that are produced by [ORACC](http://oracc.org) projects. For more information about the various `.json` files on [ORACC](http://oracc.org) see the [Oracc Open Data](http://oracc.org/doc/opendata) page.
+
 Each `.csv` file in `/output` has two fields: `id_text` and `lemma`. The field `id_text` contains a text ID that consists of a letter (P, Q, or X) and a six-digit number. The ID can easily be expanded into a URL that points at the online edition of the text, by combining it with the file name. The code for doing so is:
 > `url = 'http://oracc.org/' + filename[:-4].replace('_', '/') + '/' + id_text`
 
-Thus the URL for `id_text` = Q006239 in the file ribo_babylon2.csv is http://oracc.org/ribo/babylon2/Q006239.
+Thus the URL for `id_text` = Q006239 in the file ribo_babylon2.csv is http://oracc.org/ribo/babylon2/Q006239. Similarly, one may use the same data to reconstruct the name of the relevant `.json` file: http://oracc.org/ribo/babylon2/corpusjson/Q006239.json.
 
 The field `lemma` consist of a concatenation of all the lemmas in that text in the original order. The format of a lemma is:
 > CitationForm[GuideWord]PartofSpeech (abbreviated as CF[GW]POS).
@@ -50,6 +52,11 @@ An example is:
 
 The GW, technically, is not a translation but a disambiguator for homonyms. The complete lemma is a pointer to an entry in a standard dictionary (the *Concise Dictionary of Akkadian* by N. Postgate and J. Black). The GW does not take into account contextual meaning. Thus the word muhhu[skull]N is most commonly used in the prepositional expression *ina muhhi*, lemmatized ina[in]PRP muhhu[skull]N, meaning 'upon'.
 
+In the present data-representation lemmas never include spaces or commas (commas and spaces in the original [ORACC](http://oracc.org) lemmatizations have been replaced by `-` and nothing, respectively). The regular expression for identifying tokens, therefore, is very simple:
+> `[^ ]+`
+
+That is: any sequence of signs that does not include a space.
+
 If a word cannot be lemmatized (because it is unknown or broken) it is represented in its (sign-by-sign) transliteration, followed by NA as GW and POS, for example:
 > x-ka-ti[NA]NA
 
@@ -57,6 +64,8 @@ These non-lemmas (which are meaningless for all practical purposes) are included
 
 Many of these non-lemmas are introduced by a dollar sign ($). The $ indicates that the reading of the signs in question is uncertain (many cuneiform signs are polyvalent). For the present purposes, this is irrelevant and I recommend removing all $ signs (there are no other places where $ is used).
 
-In theory, lemmatization follows strict rules that ensures that the same word is lemmatized the same way across projects. In practice, this has often gone wrong so that the same word may be represented differently in the corpus. An example is:
+In theory, lemmatization follows strict rules that ensures that the same word is lemmatized the same way across projects. In practice, this has often gone wrong so that the same word may be represented differently in the corpus. Examples are:
 > būru[(bull)calf]N vs. būru[(bull)-calf]N
-> ṭēmu
+> ṭēmu[(fore)thought]N vs. ṭēmu[instruction]N
+
+Occasionaly there may also be different versions of the CF. For further exploration it would, therefore, be advantageous to create a cleaning pipeline with Openrefine or a similar tool. For now, the data may be explored the way they are.
