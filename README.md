@@ -62,7 +62,7 @@ If a word cannot be lemmatized (because it is unknown or broken) it is represent
 
 These non-lemmas (which are meaningless for all practical purposes) are included in the data because they may separate words that would otherwise seem to be adjacent.
 
-Many of these non-lemmas are introduced by a dollar sign ($). The $ indicates that the reading of the signs in question is uncertain (many cuneiform signs are polyvalent). For the present purposes, this is irrelevant and I recommend removing all $ signs (there are no other places where $ is used).
+Many of these non-lemmas are introduced by a dollar sign (\\$). The \\$ indicates that the reading of the signs in question is uncertain (many cuneiform signs are polyvalent). For the present purposes, this is irrelevant and I recommend removing all \\$ signs (there are no other places where \\$ is used).
 
 In theory, lemmatization follows strict rules that ensures that the same word is lemmatized the same way across projects. In practice, this has often gone wrong so that the same word may be represented differently in the corpus. Examples are:
 > būru[(bull)calf]N vs. būru[(bull)-calf]N
